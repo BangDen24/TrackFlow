@@ -233,7 +233,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 const smoother = ScrollSmoother.create({
   wrapper: ".scroll-wrapper",
   content: ".scroll-container",
-  smooth: 5,
+  smooth: 10,
   effects: true,
   // normalizeScroll: true,
 });
@@ -241,7 +241,7 @@ const smoother = ScrollSmoother.create({
 const splitGreetings = new SplitText(".Greetings", { type: "words,chars" });
 const splitDesc = new SplitText(".Description", { type: "words,chars,lines" });
 const splitAuthor = new SplitText(".author", { type: "words,chars" });
-const splitPara = new SplitText(".para", { type: "words,chars" });
+const splitPara = new SplitText(".para", { type: "words,chars, lines" });
 
 gsap.fromTo(
   ".Greetings",
@@ -252,7 +252,7 @@ gsap.fromTo(
   {
     z: 600,
     rotation: 0.01,
-    y: "+=700",
+    y: "+=1000",
     duration: 0.5,
     scrollTrigger: {
       trigger: ".content-section-1",
@@ -271,70 +271,54 @@ gsap.fromTo(
   ".Description",
   {
     y: 0,
-    opacity: 0,
+    // opacity: 0,
     z: 0,
   },
   {
-    opacity: 1,
+    // opacity: 1,
     z: 500,
-    y: "+=700",
+    y: "+=600",
     rotation: 0.01,
-    duration: 2,
+    duration: 0.25,
     stagger: 0.05,
     scrollTrigger: {
       onEnter: () => {
+        // gsap.set(".para", { visibility : "visible" });
         gsap.fromTo(
           splitDesc.words,
           {
             opacity: 0,
-            y: -100,
+            y: 0,
           },
           {
             opacity: 1,
-            y: 0,
+            y: 100,
             rotation: 0.01,
-            duration: 1,
+            duration: 0.5,
             stagger: 0.05,
             scrollTrigger: {
               trigger: ".content-section-2",
-              start: "top center",
-              end: "bottom center",
-              toggleActions: "play recverse play reverse",
+              start: "top center-=200",
+              end: "bottom top+=100",
+              toggleActions: "play reverse play reverse",
             },
           }
         );
       },
       trigger: ".content-section-2",
-      start: "top center-=100",
-      end: "bottom top",
+      start: "top center-=200",
+      end: "bottom bottom -=50",
       scrub: 1,
-      markers: true,
+      // markers: {
+      //   startColor: "pink",
+      //   endColor : "blue",
+      //   fontSize: "15px",
+      //   indent: 20,
+      // },
       toggleActions: "play none none reverse",
     },
   }
 );
-
-// Animasi untuk Author
-// gsap.fromTo(
-//   ".author",
-//   {
-//     opacity: 1,
-//     z: 0,
-//   },
-//   {
-//     opacity: 1,
-//     z: 500,
-//     duration: 2,
-//     scrollTrigger: {
-//       trigger: ".content-section-3",
-//       start: "top-=300 bottom",
-//       end: "bottom center",
-//       scrub: 1,
-//       markers: true,
-//       toggleActions: "play none none reverse",
-//     },
-//   }
-// );
 
 gsap.fromTo(
   ".author",
@@ -347,7 +331,7 @@ gsap.fromTo(
     z: 700,
     rotation: 0.01,
     y: "+=600",
-    x:"-=300",
+    x: "-=300",
     duration: 1,
     scrollTrigger: {
       onEnter: () => {
@@ -386,66 +370,40 @@ gsap.fromTo(
   ".para",
   {
     opacity: 0,
-    z: -100,
+    z: 0,
+    y: 0,
   },
   {
     opacity: 1,
-    z: 450,
-    y: 0,
+    z: 750,
+    y: "-=600",
     rotation: 0.01,
-    duration: 1.5,
+    duration: 0.5,
     scrollTrigger: {
       onEnter: () => {
         gsap.fromTo(
-          splitPara.words,
-          {
-            opacity: 0,
-            y: -100,
-          },
+          splitPara.lines,
           {
             opacity: 1,
             y: 0,
-            duration: 0.5,
+          },
+          {
+            opacity: 1,
+            y: 100,
+            duration: 0.75,
             stagger: 0.05,
-            scrollTrigger: {
-              trigger: ".content-section-4",
-              start: "top center",
-              end: "bottom center",
-              toggleActions: "play none none reverse",
-            },
           }
         );
       },
       trigger: ".content-section-4",
-      start: "top bottom-=500",
+      start: "top top+=200",
       end: "bottom top+=50",
+      // markers: true,
       scrub: 1,
-      toggleActions: "play none none reverse",
+      toggleActions: "play reverse play reverse",
     },
   }
 );
-
-// Animasi untuk Para
-// gsap.fromTo(
-//   ".para",
-//   {
-//     opacity: 0,
-//     z: -100,
-//   },
-//   {
-//     opacity: 1,
-//     z: 450,
-//     // duration: 2,
-//     scrollTrigger: {
-//       trigger: ".content-section-4",
-//       start: "top bottom-=500",
-//       end: "bottom top+=50",
-//       // markers:true,
-//       scrub: 1,
-//       toggleActions: "play none none reverse",
-//     },
-//   }
-// );
 
 const cameraHelper = new THREE.CameraHelper(camera);
 // scene.add(cameraHelper)

@@ -68,8 +68,9 @@ h1.Greetings {
 
 h2.Description {
   font-size: 35px;
-  bottom: 65%;
+  bottom: 75%;
   left: 30%;
+  /* visibility: hidden; */
 }
 
 h3.author {
@@ -79,10 +80,10 @@ h3.author {
 }
 
 p.para {
-  font-size: 40px;
-  top: 12.5%;
-  left: 37.5%;
-  color: darkslategrey;
+  font-size: 20px;
+  top: 10%;
+  left: 35%;
+  color: black;
 }
 /* ::-webkit-scrollbar {
     display: none;
