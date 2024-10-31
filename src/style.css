@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.scroll-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll-container {
+  position: relative;
+  z-index: 1;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  min-height: 400vh;
+}
+
+.content-section-1,
+.content-section-2,
+.content-section-3,
+.content-section-4 {
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  perspective-origin: 35% 20%;
+}
+
+.content-section-2 {
+  height: 140vh !important;
+}
+
+/* Base styles untuk semua text elements */
+h1,
+h2,
+h3,
+p {
+  position: fixed;
+  color: white;
+  font-family: sans-serif;
+  position: absolute;
+  z-index: 100;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Specific text element styles */
+h1.Greetings {
+  font-size: 285px;
+  top: 55%;
+  left: 15%;
+}
+
+h2.Description {
+  font-size: 35px;
+  bottom: 65%;
+  left: 30%;
+}
+
+h3.author {
+  font-size: 20px;
+  bottom: 117%;
+  left: 45%;
+}
+
+p.para {
+  font-size: 40px;
+  top: 12.5%;
+  left: 37.5%;
+  color: darkslategrey;
+}
+/* ::-webkit-scrollbar {
+    display: none;
+} */
