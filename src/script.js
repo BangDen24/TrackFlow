@@ -348,18 +348,24 @@ gsap.fromTo(
             stagger: 0.05,
             scrollTrigger: {
               trigger: ".content-section-3",
-              start: "top center",
+              start: "top center+=50",
               end: "bottom center",
               toggleActions: "play none none reverse",
+              markers:true,
             },
           }
         );
       },
       trigger: ".content-section-3",
-      start: "top center+=300",
+      start: "top center+=200",
       end: "bottom top+=200",
       scrub: 1,
-      // markers: true,
+      markers: {
+        startColor: 'blue',
+        endColor: 'black',
+        fontSize: '20px',
+        indent :'20%'
+      },
       toggleActions: "play none none reverse",
     },
   }
@@ -445,3 +451,7 @@ const tick = () => {
 };
 
 tick();
+
+
+//benerin para
+//deploy
