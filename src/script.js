@@ -351,7 +351,7 @@ gsap.fromTo(
               start: "top center+=50",
               end: "bottom center",
               toggleActions: "play none none reverse",
-              markers:true,
+              // markers:true,
             },
           }
         );
@@ -360,12 +360,12 @@ gsap.fromTo(
       start: "top center+=200",
       end: "bottom top+=200",
       scrub: 1,
-      markers: {
-        startColor: 'blue',
-        endColor: 'black',
-        fontSize: '20px',
-        indent :'20%'
-      },
+      // markers: {
+      //   startColor: 'blue',
+      //   endColor: 'black',
+      //   fontSize: '20px',
+      //   indent :'20%'
+      // },
       toggleActions: "play none none reverse",
     },
   }
